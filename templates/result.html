@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Scraped Data</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+
+      <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+
+</head>
+
+<body>
+
+  <div class="table-users">
+   <div class="header">Scrapped Data</div>
+   <table cellspacing="0">
+      <tr>
+         <th>S.no.</th>
+         <th>Video URL</th>
+         <th>Thumbnail URL</th>
+         <th>Title</th>
+         <th>Views </th>
+         <th>Posted at</th>
+      </tr>
+         {% for data in scrapData %}
+      <tr>
+          <td>{{data['index']}}</td>
+         <td><a href="{{data['vurl']}}" target="_blank">{{data['vurl']}}</a></td>
+         <td><a href="{{data['turl']}}" target="_blank">{{data['turl']}}</a></td>
+         <td>{{data['title']}}</td>
+         <td>{{data['views']}} </td>
+         <td>{{data['time']}} </td>
+      </tr>
+       {% endfor %}
+   </table>
+</div>
+
+
+
+</body>
+
+</html>
